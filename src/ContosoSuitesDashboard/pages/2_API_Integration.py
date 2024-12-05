@@ -21,8 +21,16 @@ def get_hotel_bookings(hotel_id):
 def invoke_chat_endpoint(question):
     """Invoke the chat endpoint with the specified question."""
     api_endpoint = st.secrets["api"]["endpoint"]
-    response = requests.post(f"{api_endpoint}/Chat", data={"message": question}, timeout=10)
-    return response
+    
+
+    url = 'https://gnlzlxhi3u2qm-api.azurewebsites.net/Chat'
+    myobj = {'message': question}
+
+    x = requests.post(url, data = myobj, timeout=10)
+
+
+
+    return x
 
 def main():
     """Main function for the Chat with Data Streamlit app."""
